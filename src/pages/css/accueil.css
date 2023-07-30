@@ -1,0 +1,66 @@
+h1 {
+    color: black;
+}
+
+.bloc{
+    width: 100%;
+    display: flex;
+}
+.apropos{
+    width: 60%;
+}
+.titleBlo{
+    font-size: 2.2rem;
+}
+.bodyB{
+    margin-top: 20px;
+}
+.imgBloc{
+    width: 20rem;
+    height:15rem;
+    border-radius: 5px;
+}
+.btns{
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    border: none;
+}
+
+.img{
+    width: 4rem;
+    height: 4rem;
+}
+.contentFor{
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+.contentForCreat{
+    width:100% ;
+    margin: 0 auto; 
+}
+.bg-body-tertiary{
+    margin: 0;
+
+}
+.Menu{
+    background-color: #F8F9FA;
+}
+.barreMenu{
+    background-color: rgb(242, 242, 242);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.sizeForm{
+    width: 700px;
+}
+.incoBG{
+    background-color: red;
+}

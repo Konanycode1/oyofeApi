@@ -10,25 +10,34 @@ import Resto from "./routes/resto.js";
 import Client from "./routes/client.js";
 import RoutePost from "./routes/post.js";
 import Routecommande from "./routes/commande.js"
+const app = express()
+app.use(cors())
+let key = "My token"
+app.use(cookieParser())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader("Access-Control-Allow-Credentials", false);
+//     res.setHeader('Access-Control-Allow-Headers', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+//     next();
+//   });
 
 let __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 config({
     path:path.join(process.cwd(), '.env.local'),
 })
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(cookieParser())
+
 app.use(express.static("images"))
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use("/api",Resto);
-app.use("/api/",Client);
-app.use("/api/",RoutePost)
-app.use("/api/",Routecommande)
+app.use("/api",Client);
+app.use("/api",RoutePost)
+app.use("/api",Routecommande)
 
 if (inProduction) {
     app.get('/*', (_, res) => {

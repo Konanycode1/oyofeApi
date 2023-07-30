@@ -2,6 +2,7 @@ import { MongooseError } from "mongoose";
 import client from "../models/client.js";
 import { comparePass, hashPass } from "../util/hash.js";
 import { generateToken } from "../util/token.js";
+import jwt from "jsonwebtoken"
 import fs from "fs"
 
 class Client{
@@ -13,8 +14,8 @@ class Client{
             if(clt){
                 return res.status(400).json({message: "Compte existe déjà utilisé"})
             }
-            client.create({email,image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,numero,password: await hashPass(password),...body})
-            res.status(201).json({message: "Compte créer !!"})
+            client.create({email,image:`${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`,numero,password: await hashPass(password),...body})
+            res.status(201).json({status:true,message: "Compte créer !!"})
         } catch (e) {
             if( e instanceof MongooseError){
                 return res.status(400).json({status: false, message: e.message})
@@ -28,13 +29,33 @@ class Client{
             const {email, password} = req.body
             const user = await client.findOne({email})
             if(user && comparePass(password, user.password)){
-                res.cookie('token', generateToken(user.toObject()))
-                res.cookie('userId', user._id)
-                res.cookie('statut',"Client")
+                // let value = generateToken(user.toObject());
+                // res.cookie('userId', user._id,{
+                //     httpOnly: true,
+                //     expires: new Date(Date.now() + 3600000), 
+                //     path: '/',
+                //     sameSite: 'none',
+                //   })
+                // res.cookie('token', value,{
+                //     maxAge:new Date(Date.now() + 3600000),
+                //     path: '/',
+                //     sameSite: 'none',
+                //   } )
+                // res.cookie('statut',"Client",{
+                //     httpOnly: true,
+                //     expire: new Date(Date.now() + 3600000), 
+                //     path: '/',
+                //     sameSite: 'none',
+                //   })
                 return res.status(200)
                 .json({
-                    status:true,
-                    message:"Connexion encours"
+                    status: true,
+                    userId:user._id,
+                    statut: "client",
+                    token: jwt.sign({userId:user._id,statut:"client"},
+                        "My token",
+                        {expiresIn: 3600*24}
+                        )
                 })
             }
             return res.status(401).json({
@@ -53,16 +74,16 @@ class Client{
        
         try {
             const userId = req.auth.userId
-            const {id} = req.params
-            const data = await client.findById(id)
-            if(data && data._id == userId){
+            const data = await client.findById(userId)
+            if(data){
                 res.status(200).json({status:true,message:data})
             }
-            res.status(401).json({
-                status:false,
-                message: "Identifiant introuvable"
-            })
-            
+            else {
+                res.status(401).json({
+                    status:false,
+                    message: "Identifiant introuvable"
+                })
+            }
         } catch (e) {
             if(e instanceof MongooseError){
                 res.status(400).json({message: e.message})
@@ -77,7 +98,7 @@ class Client{
         console.log(idClient, clientId)
         const clientUser = await client.findById(idClient)
         if(clientUser && clientUser._id == clientId){
-            const filename = clientUser.image.split('/images/')[1]
+            const filename = clientUser.image.split('/api/images/')[1]
             fs.unlink(`images/${filename}`, async ()=>{
                const delet =  await clientUser.deleteOne({_id:idClient})
                if(!delet){
@@ -117,14 +138,14 @@ class Client{
             if(ClientUser && ClientUser._id == clientId){
                 let updateClient
                 if(image){
-                    image=`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+                    image=`${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`
                     updateClient = await ClientUser.updateOne({image,...body})
                 }
                 else if(password){
                     updateClient = await ClientUser.updateOne({password:await hashPass(password),...body})
                 }
                 else if (image && password){
-                    image=`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+                    image=`${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`
                     updateClient = await ClientUser.updateOne({image,password:await hashPass(password),...body})
                 }
                 else{

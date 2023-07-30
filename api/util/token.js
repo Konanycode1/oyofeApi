@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 /**
  * 
- * @param {String} playlaod 
+ * @param {Object} playlaod 
  * @returns 
  */
 export const generateToken = (playlaod)=>{

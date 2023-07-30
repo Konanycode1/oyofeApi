@@ -6,9 +6,9 @@ import Auth from "../middleware/auth.js";
 
 
 Route.post('/resto/',multerImage.single('image'),Resto.create),
-Route.get('/resto/',Resto.loginUser)
+Route.post('/restoLog/',Resto.loginUser)
 Route.put('/resto/:idResto',Auth,multerImage.single('image'),Resto.updateResto)
 Route.delete('/resto/:idResto',Auth,Resto.deleteResto)
-Route.get("/resto/:id",Auth,Resto.readById)
+Route.get("/restoId/",Auth,Resto.readById)
 
 export default Route

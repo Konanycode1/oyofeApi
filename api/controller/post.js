@@ -8,18 +8,21 @@ class Post{
         try {
             const restoId = req.auth.userId
             const  statut = req.auth.statut;
-            let {image,...body} = req.body
+            let {image,...body} = req.body;
             let restoUser = await resto.findById(restoId)
             if(!restoUser){
                 res.status(404).json({status:false,message:"Imposible !!"})
             }
             const newPost = await post.create({
-                    image:`${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+                    image:`${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`,
                     ...body,
                     author:restoId
                 })
-            restoUser.updateOne({$push:{post: {$each:[`${newPost._id}`]}}})
-            res.status(201).json({status:true,message:"Post effectué avec succès"})
+            const insertPost = await restoUser.updateOne({$push:{post: {$each:[`${newPost._id}`]}}})
+                if(insertPost){
+                    res.status(201).json({status:true,message:"Post effectué avec succès"})
+                }
+            
         } catch (e) {
             if(e instanceof MongooseError){
                 return res.status(400).json({message:e})
@@ -61,7 +64,7 @@ class Post{
                 return
             }
             if(image !=null){
-                image=`${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+                image=`${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`
                 await postUser.updateOne({image,...body})
             }
             else{
@@ -91,7 +94,7 @@ class Post{
             res.status(401).json({status: false , message:"Post introuvable !!"})
             return
         }
-        let filename = postAuth.image.split('/images/')[1]
+        let filename = postAuth.image.split('/api/images/')[1]
         fs.unlink(`images/${filename}`, async ()=>{
             postAuth.deleteOne()
         })
@@ -103,6 +106,33 @@ class Post{
             }
             return res.status(500).json({message:e.message})
         }
+    }
+    static async readAll(req,res){
+        try {
+            const restoId = req.auth.userId
+            const restoAuth = await resto.findById(restoId);
+            if(restoAuth){
+                const data = await post.find({author:restoId});
+                res.status(201).json({status: true, message: data})
+            }
+            else{
+                res.status(401).json({status: false, message: "introuvable"})
+            }
+        } catch (e) {
+            res.status(500).json({status: false, message: e.message})
+        }
+      
+    }
+
+    static async readForAll(req,res){
+        try {
+                const data = await post.find();
+                res.status(201).json({status: true, message: data})
+           
+        } catch (e) {
+            res.status(500).json({status: false, message: e.message})
+        }
+      
     }
 }
 export default Post

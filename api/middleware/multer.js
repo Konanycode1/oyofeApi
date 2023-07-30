@@ -9,7 +9,7 @@ const MIME_TYPE = {
 
 const storage = diskStorage({
     destination: (req,file,callback)=>{
-         callback(null, 'images')
+         callback(null, 'api/images')
     },
     filename: (req,file,callback)=>{
         const name = file.originalname.split(" ").join("_");
