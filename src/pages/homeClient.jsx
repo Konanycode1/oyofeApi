@@ -3,9 +3,10 @@ import { Container, Row,Col,Image, Button, Navbar, Nav,Card, Badge } from "react
 import { BsPower,BsFillBarChartFill,BsFillBasket2Fill,BsStar } from "react-icons/bs";
 import { useState, useEffect } from 'react';
 import MenuClient from './menuClient';
+import url from './url'
 
 function HomeClient() {
-    let postApi = "http://localhost:3000/api/readForAll/"
+    let postApi = `${url}api/readForAll/`
     const [allPost, setAllpost] = useState([]);
    
     let colors ="red";

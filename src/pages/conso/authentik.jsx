@@ -1,9 +1,10 @@
 
 import { useState } from "react";
+import url from './url'
 function Authentick() {
     let [data, setData] = useState({})
     const  authentic = async ()=>{
-        let api = "http://localhost:3000/api/client/"
+        let api = url+"api/client/"
         const cookie = JSON.parse(sessionStorage.getItem("cookie"));
         fetch(api, {
             method:"GET",

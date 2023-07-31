@@ -2,11 +2,12 @@ import { Container, Col,Row, Form, Button } from "react-bootstrap"
 import {Link,useNavigate} from "react-router-dom"
 import './css/accueil.css'
 import { useState } from "react";
+import url from './url'
 function CreateClient(){
 
     let [result, setResult] = useState();
     let navigate = useNavigate(null);
-    
+    let api = `${url}api/client/`
 
     function submitDataClient(e) {
             e.preventDefault()
@@ -19,7 +20,7 @@ function CreateClient(){
             valeur.append('image',e.target.querySelector("#image").files[0]);
             valeur.append('password',e.target.querySelector("#password").value);
 
-            fetch("http://localhost:3000/api/client/", {
+            fetch(api, {
                     method: "POST",
                     body: valeur
             })

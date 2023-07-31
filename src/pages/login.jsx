@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom"
 import './css/accueil.css'
 import { useState } from "react"
 import axios from "axios";
+import url from './url'
 function Login(){
     let navigate = useNavigate(null)
     // let [data, setData] = useState({"numero":"","password":""});
@@ -16,7 +17,7 @@ function Login(){
         }
         
         console.log(val)
-        let api = "http://localhost:3000/api/restoLog/" 
+        let api = url+"api/restoLog/"
         axios.post(api,val)
         .then((newRes)=>{
             setResult(newRes.data)

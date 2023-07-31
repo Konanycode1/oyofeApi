@@ -3,8 +3,10 @@ import { Container, Row,Col,Image, Button, Navbar, Nav,Card } from "react-bootst
 import { BsPower,BsFillRocketFill,BsFillRocketTakeoffFill,BsFillCartCheckFill } from "react-icons/bs";
 import {useState, useEffect} from "react"
 import Menu from './menu';
+import url from './url'
 function Vues() {
-    let postApi = "http://localhost:3000/api/postAll/"
+    let postApi = `${url}api/postAll/`
+    
     const [allPost, setAllpost] = useState([])
     let cookie = JSON.parse(sessionStorage.getItem("cookieResto"))
     useEffect(()=>{

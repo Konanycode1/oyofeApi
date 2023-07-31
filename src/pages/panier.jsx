@@ -2,8 +2,10 @@ import { Container, Row,Col,ListGroup , Button, Navbar, Nav,Card, Badge } from "
 import { BsPower,BsFillBagCheckFill,BsFillBellFill,BsXCircle,BsFillBasket2Fill } from "react-icons/bs";
 import { useState,useEffect } from 'react';
 import MenuClient from './menuClient';
+import url from './url'
 function Panier(){
-    let postApi = "http://localhost:3000/api/readForAll/"
+    
+    let postApi = `${url}api/readForAll/`
     const [allPost, setAllpost] = useState([]);
     const [commd, setCommd] = useState()
    

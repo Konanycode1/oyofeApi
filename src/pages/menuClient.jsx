@@ -3,14 +3,14 @@ import { Col, Image, Button,Row  } from "react-bootstrap"
 import { BsFillBagCheckFill,BsFillBellFill,BsFillCartPlusFill} from "react-icons/bs";
 import {useNavigate} from "react-router-dom"
 import user from "../assets/user.png"
-
+import url from './url'
 function MenuClient() {
     let [data, setData] = useState({})
     let pannier = JSON.parse(localStorage.getItem('dataCom')) 
     let navigate = useNavigate(null)
         useEffect( ()=>{
         
-                let api = "http://localhost:3000/api/client/"
+                let api = url+"api/client/"
                 const cookie = JSON.parse(sessionStorage.getItem("cookieClient"));
                 if(cookie == null) navigate('/loginCLient');
                 fetch(api, {

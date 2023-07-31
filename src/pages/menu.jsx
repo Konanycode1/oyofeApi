@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Row,Col,Image,Button,Container } from "react-bootstrap"
 import user from "../assets/rest.png"
+import url from './url'
 
 function Menu() {
-    let api = "http://localhost:3000/api/restoId/"
+    let api = `${url}api/restoId/`
     const cookie = JSON.parse(sessionStorage.getItem("cookieResto"));
     let [data, setData] = useState({})
 

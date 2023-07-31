@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container, Row,Col, Button, Navbar, Nav,Form, Table, Alert} from "react-bootstrap"
 import { BsPower } from "react-icons/bs";
 import Menu from './menu';
+import url from './url'
 
 
 function Publier() {
@@ -9,8 +10,8 @@ function Publier() {
     let [varia, setVaria] = useState("danger")
     const [allPost, setAllpost] = useState([])
     let cookie = JSON.parse(sessionStorage.getItem("cookieResto"))
-    let api = "http://localhost:3000/api/poste/"
-    let postApi = "http://localhost:3000/api/postAll/"
+    let api = url+"api/poste/"
+    let postApi = url+"api/postAll/"
     function submitDataPub(e) {
         e.preventDefault();
         let formData = new FormData();

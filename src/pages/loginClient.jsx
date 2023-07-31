@@ -5,8 +5,9 @@ import { useState } from "react"
 import './css/accueil.css'
 import axios from "axios"
 import Cookies from "js-cookie"
+import url from './url'
 function LoginClient(){
-    let api = "http://localhost:3000/api/clientLogin/"
+    let api = url+"api/clientLogin/"
     let [result, setResult] = useState();
     let navigate = useNavigate(null);
 
