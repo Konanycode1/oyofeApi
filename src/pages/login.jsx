@@ -16,7 +16,7 @@ function Login(){
         }
         
         console.log(val)
-        let api = "https://oyofe.onrender.com/api/restoLog/" 
+        let api = "http://localhost:3000/api/restoLog/" 
         axios.post(api,val)
         .then((newRes)=>{
             setResult(newRes.data)
