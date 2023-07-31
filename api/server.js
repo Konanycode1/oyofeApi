@@ -46,10 +46,10 @@ if (inProduction) {
       res.sendFile(path.join(__dirname, '../dist/index.html'));
     });
   }
-
+  let port = process.env.PORT || 3000
 connectDB()
 .then(()=>{
-    app.listen(3000,()=>{
+    app.listen(port,()=>{
         console.log("server lancé !!!")
     })
 })
