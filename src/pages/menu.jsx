@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row,Col,Image,Button,Container } from "react-bootstrap"
+import user from "../assets/rest.png"
 
 function Menu() {
     let api = "http://localhost:3000/api/restoId/"
@@ -28,19 +29,19 @@ function Menu() {
         <>
             <Row  >
                             <Col lg={12} sm={12} md={12} className=" d-flex align-items-center justify-content-center p-2">
-                            <Image src={data.image} className="myLogo" roundedCircle />
+                            <Image src={user} className="myLogo" roundedCircle />
                             </Col>
                             <Col lg={12} sm={12} md={12} className=" d-flex align-items-center justify-content-center">
                                 <h3>{data.nomResto}</h3>
                             </Col>
                             <Col lg={6} sm={4} md={4} className="p-1">
                                 <Button variant="info" size="sm" disabled>
-                                    Publier : 20
+                                    Publier :
                                 </Button>
                             </Col>
                             <Col lg={6} sm={4} md={4}  className="p-1">
                                 <Button variant="info" size="sm" disabled>
-                                    Commande : 20
+                                    Commande : 
                                 </Button>
                             </Col>
                             <Col lg={6} sm={4} md={4} >

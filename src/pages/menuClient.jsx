@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Image, Button,Row  } from "react-bootstrap"
 import { BsFillBagCheckFill,BsFillBellFill,BsFillCartPlusFill} from "react-icons/bs";
 import {useNavigate} from "react-router-dom"
+import user from "../assets/user.png"
 
 function MenuClient() {
     let [data, setData] = useState({})
@@ -39,7 +40,7 @@ function MenuClient() {
         <>
              <Row  >
                             <Col lg={12} sm={12} md={12} className=" d-flex align-items-center justify-content-center p-2">
-                            <Image src={data.image} className="myLogo" roundedCircle />
+                            <Image src={user} className="myLogo" roundedCircle />
                             </Col>
                             <Col lg={12} sm={12} md={12} className=" d-flex align-items-center justify-content-center">
                                 <h5>{data.nomClient}</h5>

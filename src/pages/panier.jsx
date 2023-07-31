@@ -35,9 +35,8 @@ function Panier(){
                 let panierG = allPost.filter((ele)=>ele._id === item)
                 recup = panierG
             }) 
-           
+           return recup
         }
-       console.log(recup)
     }
     const rep = pan(allPost,panier);
     // console.log(rep)
@@ -103,9 +102,9 @@ function Panier(){
                                                         return (
                                                             <ListGroup.Item as="li" key={ele._id}>
                                                                 <Row>
-                                                                    <Col lg={3} sm={3}>{ele.plat}</Col>
-                                                                    <Col lg={3} sm={3}>{ele.libelle}</Col>
-                                                                    <Col lg={3} sm={3}>{ele.montant}</Col>
+                                                                    <Col lg={4} sm={4}>{ele.plat}</Col>
+                                                                    <Col lg={4} sm={4}>{ele.libelle}</Col>
+                                                                    <Col lg={4} sm={4}>{ele.montant}</Col>
                                                                 </Row>
                                                             </ListGroup.Item>
                                                         )
