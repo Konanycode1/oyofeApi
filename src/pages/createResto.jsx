@@ -1,6 +1,7 @@
 import { Container, Col,Row, Form, Button } from "react-bootstrap"
 import {Link, useNavigate} from "react-router-dom"
 import './css/accueil.css'
+import url from './url'
 
 import {useState} from "react"
 function CreateResto(){
@@ -29,7 +30,7 @@ function CreateResto(){
                 // let {image, ...val} = cori
                 // setData({image,...val})
 
-                fetch("http://localhost:3000/api/resto/", {
+                fetch(`${url}api/resto/`, {
                         method: "POST",
                         body: valeur
                 })
