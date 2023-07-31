@@ -245,7 +245,8 @@ let navigate = useNavigate()
                     </Col>
                 </Row>
             </Container>
-            <Container >
+            <Container 
+            >
                 <Row>
                     <Col lg={12} className="d-flex justify-content-center align-items-center">
                         <p>KonanyCode @ 2023</p>

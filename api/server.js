@@ -31,6 +31,13 @@ config({
     path:path.join(process.cwd(), '.env.local'),
 })
 
+if (inProduction) {
+    app.get('/*', (_, res) => {
+      res.sendFile(path.join(__dirname, '../dist/index.html'));
+    });
+  }
+
+
 app.use(express.static("images"))
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -39,11 +46,6 @@ app.use("/api",Client);
 app.use("/api",RoutePost)
 app.use("/api",Routecommande)
 
-if (inProduction) {
-    app.get('/*', (_, res) => {
-      res.sendFile(path.join(__dirname, '../dist/index.html'));
-    });
-  }
 
 connectDB()
 .then(()=>{
