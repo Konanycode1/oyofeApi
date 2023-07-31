@@ -126,7 +126,7 @@ class Post{
 
     static async readForAll(req,res){
         try {
-                const data = await post.find();
+                let data = await post.find().populate('author').exec();
                 res.status(201).json({status: true, message: data})
            
         } catch (e) {

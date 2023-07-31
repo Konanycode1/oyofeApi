@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
 import { Col, Image, Button,Row  } from "react-bootstrap"
 import { BsFillBagCheckFill,BsFillBellFill,BsFillCartPlusFill} from "react-icons/bs";
-
+import {useNavigate} from "react-router-dom"
 
 function MenuClient() {
     let [data, setData] = useState({})
     let pannier = JSON.parse(localStorage.getItem('dataCom')) 
+    let navigate = useNavigate(null)
         useEffect( ()=>{
         
                 let api = "http://localhost:3000/api/client/"
                 const cookie = JSON.parse(sessionStorage.getItem("cookieClient"));
+                if(cookie == null) navigate('/loginCLient');
                 fetch(api, {
                     method:"GET",
                     headers: {
                     "authorization":`token ${cookie.token}`
                     }
                 })
-                .then((res)=>res.json())
+                .then((res)=>{
+                    if(res.redirected){
+                        navigate('/loginCLient')
+                    }
+                    return res.json()
+                })
                 .then((response)=>{
         
                     if( response.status == true){

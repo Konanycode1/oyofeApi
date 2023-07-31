@@ -4,6 +4,7 @@ import { BsPower,BsFillBagCheckFill,BsFillBellFill,BsXCircle,BsFillBasket2Fill }
 import { useState,useEffect } from 'react';
 import MenuClient from './menuClient';
 function Historique() {
+    let panier = JSON.parse(localStorage.getItem('dataCom')) 
     
 
     return(
@@ -26,9 +27,9 @@ function Historique() {
                         </Nav.Item>
                         
                         <Nav.Item>
-                            <Nav.Link>
+                            <Nav.Link href='/panier'>
                                 <BsFillBasket2Fill />
-                                <Badge bg="secondary">2</Badge>
+                                <Badge bg="secondary">{panier.length}</Badge>
                             </Nav.Link>
                             
                         </Nav.Item>

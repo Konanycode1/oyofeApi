@@ -10,6 +10,7 @@ import Publier from './pages/publier'
 import Vues from './pages/vues'
 import HomeClient from './pages/homeClient'
 import Historique from './pages/historique'
+import Panier from './pages/panier'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -27,6 +28,7 @@ function App() {
           <Route path='/vues' element={<Vues/>} />
           <Route path='/homeClient' element={<HomeClient/>} />
           <Route path='/historique' element={<Historique/>} />
+          <Route path='/panier' element={<Panier/>} />
       </Routes>
     </>
   )

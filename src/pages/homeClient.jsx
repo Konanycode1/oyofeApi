@@ -7,8 +7,7 @@ import MenuClient from './menuClient';
 function HomeClient() {
     let postApi = "http://localhost:3000/api/readForAll/"
     const [allPost, setAllpost] = useState([]);
-    const [color, setColor] = useState(false);
-    const [idPos, setPost] = useState('');
+   
     let colors ="red";
     let[ compte, setCompte ]= useState(0);
     let [dataCom, setDataCom] =useState([]);
@@ -19,12 +18,22 @@ function HomeClient() {
         nmbr()
        const tabCom = e.target.getAttribute("idPost")
        setDataCom((dataCo)=> [...dataCo, tabCom])
-        // let parent = e.target.closest('#btnP')
-        // console.log(parent)
+
+       let dataSexion = JSON.parse(localStorage.getItem("dataCom"));
+       if(dataSexion != null){
+            dataSexion.push(tabCom);
+           localStorage.setItem("dataCom",JSON.stringify(dataSexion))
+       }
+       else{
+            let val =[]
+            val.push(tabCom)
+               localStorage.setItem("dataCom",JSON.stringify(val))
+           
+       }
+        
  
     }
-    localStorage.setItem("dataCom",JSON.stringify(dataCom))
-   
+  console.log(dataCom)
   
     useEffect(()=>{
         fetch(postApi, {
@@ -64,14 +73,14 @@ function HomeClient() {
                         </Nav.Item>
                         
                         <Nav.Item>
-                            <Nav.Link>
+                            <Nav.Link href='/panier'>
                                 <BsFillBasket2Fill />
-                                <Badge bg="secondary">{dataCom.length!=0?dataCom.length:0}</Badge>
+                                <Badge bg="secondary">{dataCom.length}</Badge>
                             </Nav.Link>
                             
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link>
+                            <Nav.Link >
                                 <BsPower />
                             </Nav.Link>
                             

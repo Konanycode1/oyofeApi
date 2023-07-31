@@ -25,11 +25,10 @@ function HomeResto() {
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
+                                        <th>Client</th>
+                                        <th>Plat</th>
+                                        <th>Nombre</th>
+                                        <th>Montant</th>
                                         <td>
                                             <Button variant="outline-warning">Valider</Button>{' '}
                                             <Button variant="outline-danger">Annuler</Button>
@@ -39,39 +38,14 @@ function HomeResto() {
                                     <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
+                                        <td>Ivoire bouff</td>
+                                        <td>couscous</td>
+                                        <td>2X</td>
+                                        <td>14 000 FR</td>
                                         <td>
                                             <Button variant="outline-warning">Valider</Button>{' '}
                                             <Button variant="outline-danger">Annuler</Button>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Button variant="outline-warning">Valider</Button>{' '}
-                                            <Button variant="outline-danger">Annuler</Button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Button variant="outline-warning">Valider</Button>{' '}
-                                            <Button variant="outline-danger">Annuler</Button>
-                                        </td>   
                                     </tr>
                                     </tbody>
                                 </Table>
@@ -84,11 +58,10 @@ function HomeResto() {
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
-                                        <th>Table heading</th>
+                                        <th>Client</th>
+                                        <th>Plat</th>
+                                        <th>Nombre</th>
+                                        <th>Montant</th>
                                         <td>
                                         <Badge bg="info">Encours</Badge>
                                         </td>
@@ -97,33 +70,10 @@ function HomeResto() {
                                     <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Badge bg="info">Encours</Badge>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>  
-                                        <td>
-                                            <Badge bg="info">Encours</Badge>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
+                                        <td>Ivoire bouff</td>
+                                        <td>couscous</td>
+                                        <td>2X</td>
+                                        <td>14 000 FR</td>
                                         <td>
                                             <Badge bg="info">Encours</Badge>
                                         </td>

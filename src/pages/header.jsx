@@ -1,8 +1,10 @@
 import './css/header.css'
 import { Container } from 'react-bootstrap'
+import CarouselAcc from './carousel'
 function Header() {
     return (
-        <Container fluid className='nav'>
+        <>
+         <Container fluid className='nav'>
             <div className='header'>
                 <div className="logo">
                     <p className='ds'></p>
@@ -17,6 +19,11 @@ function Header() {
                 </div>
             </div>
         </Container>
+        {/* <Container fluid>
+            <CarouselAcc  />
+        </Container> */}
+        </>
+       
         
     )
 }
