@@ -10,7 +10,7 @@ import mafe from "../assets/Le mafé.jpg"
 import tajine from "../assets/Leajine.jpeg"
 import ndole from "../assets/ndole.jpeg"
 import konkonde from "../assets/kon.jpeg"
-
+import user from "../assets/user.png"
 function Body(){
 let navigate = useNavigate()
 
@@ -155,7 +155,7 @@ let navigate = useNavigate()
                             <Card.Header style={{backgroundColor:'#feb345'}}>
                                 <Row>
                                     <Col xl={4} xs={4} md={4}>
-                                    <Image className="img" src={ph}  roundedCircle />
+                                    <Image className="img" src={user}  roundedCircle />
                                     </Col>
                                     <Col xl={6} xs={8} md={8}>
                                         <h4>Koné ZORO</h4>
@@ -189,7 +189,7 @@ let navigate = useNavigate()
                             <Card.Header style={{backgroundColor:'#feb345'}}>
                                 <Row>
                                     <Col xl={4} xs={4} md={4}>
-                                    <Image className="img" src={ph}  roundedCircle />
+                                    <Image className="img" src={user}  roundedCircle />
                                     </Col>
                                     <Col xl={6} xs={8} md={8}>
                                         <h4>Diara Mamadou</h4>
