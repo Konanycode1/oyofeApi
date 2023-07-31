@@ -29,10 +29,7 @@ function HomeResto() {
                                         <th>Plat</th>
                                         <th>Nombre</th>
                                         <th>Montant</th>
-                                        <td>
-                                            <Button variant="outline-warning">Valider</Button>{' '}
-                                            <Button variant="outline-danger">Annuler</Button>
-                                        </td>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
