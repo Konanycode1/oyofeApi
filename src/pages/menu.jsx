@@ -55,12 +55,12 @@ function Menu() {
                             </Col>
                             <Col lg={6} sm={4} md={4}  className="p-1">
                                 <Button variant="outline-info" size="sm" disabled>
-                                    Cmde validée : 5
+                                    Cmde validée 
                                 </Button>
                             </Col>
                             <Col lg={6} sm={4} md={4}  className="p-1">
                                 <Button variant="outline-info" size="sm" disabled>
-                                    Plats publiés : 5
+                                    Plats publiés 
                                 </Button>
                             </Col>
                         </Row>
